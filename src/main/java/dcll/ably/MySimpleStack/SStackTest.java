@@ -1,41 +1,89 @@
 package dcll.ably.MySimpleStack;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import org.junit.Assert.*;
+import  org.junit.*;
 
 /**
  * Created by ASUS on 03/11/2016.
  */
 public class SStackTest {
     SStack stack ;
-    @org.junit.Before
+    @Before
     public void setUp() throws Exception {
        stack = new SStack();
         System.out.println("creation de la pile");
     }
 
-    @org.junit.Test
+    @Test
     public void isEmpty() throws Exception {
-        Assert.
+        Assert.assertEquals(true, stack.isEmpty());
+        stack.push(new Item(3));
+        Assert.assertEquals(false, stack.isEmpty());
     }
 
-    @org.junit.Test
+    @Test
     public void getSize() throws Exception {
-
+        Assert.assertEquals(0, stack.getSize());
+        stack.push(new Item(4));
+        Assert.assertEquals(1, stack.getSize());
     }
 
-    @org.junit.Test
+    @Test
     public void push() throws Exception {
+        Item item = new Item(14);
+        Assert.assertEquals(0,stack.getSize());
 
+        stack.push(item);
+        stack.push(new Item(34));
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item2 = stack.peek();
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item3 = stack.pop();
+        Assert.assertEquals(1,stack.getSize());
+        Assert.assertEquals(item3.getValue(),item2.getValue());
+
+        Assert.assertEquals(item2.getValue() instanceof Integer, true);
     }
 
-    @org.junit.Test
+    @Test
     public void peek() throws Exception {
+        Item item = new Item(14);
+        Assert.assertEquals(0,stack.getSize());
 
+        stack.push(item);
+        stack.push(new Item(34));
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item2 = stack.peek();
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item3 = stack.pop();
+        Assert.assertEquals(1,stack.getSize());
+        Assert.assertEquals(item3.getValue(),item2.getValue());
+
+        Assert.assertEquals(item2.getValue() instanceof Integer, true);
     }
 
-    @org.junit.Test
+    @Test
     public void pop() throws Exception {
+        Item item = new Item(14);
+        Assert.assertEquals(0,stack.getSize());
 
+        stack.push(item);
+        stack.push(new Item(34));
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item2 = stack.peek();
+        Assert.assertEquals(2,stack.getSize());
+
+        Item item3 = stack.pop();
+        Assert.assertEquals(1,stack.getSize());
+        Assert.assertEquals(item3.getValue(),item2.getValue());
+
+        Assert.assertEquals(item2.getValue() instanceof Integer, true);
     }
 
 }
